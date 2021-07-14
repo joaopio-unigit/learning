@@ -1,0 +1,30 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Main {
+	
+	public static void main(String[] args) throws IOException {
+		
+		//LER UM FICHEIRO
+		File f = new File("/home/joaopio/Desktop/ReadWriteFiles/Java/Read-Write Files/test.txt");
+		Scanner scan = new Scanner(f);
+		
+		String fileContent = "";
+		
+		while(scan.hasNextLine()) {
+			String currLine = scan.nextLine();
+			fileContent = fileContent.concat(currLine + "\n");
+			System.out.println(currLine);
+		}
+		
+		
+		FileWriter fWriter = new FileWriter("/home/joaopio/Desktop/ReadWriteFiles/Java/Read-Write Files/testCopy.txt");
+		fWriter.write(fileContent);
+		
+		scan.close();
+		fWriter.close();
+	}
+	
+}

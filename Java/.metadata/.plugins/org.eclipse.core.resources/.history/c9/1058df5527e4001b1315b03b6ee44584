@@ -1,0 +1,23 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Main {
+	
+	public static void main(String[] args) throws FileNotFoundException {
+		
+		//LER UM FICHEIRO
+		File f = new File("/home/joaopio/Desktop/ReadWriteFiles/Java/Read-Write Files/test.txt");
+		Scanner scan = new Scanner(f);
+		
+		String fileContent = "";
+		
+		while(scan.hasNextLine()) {
+			String currLine = scan.nextLine();
+			System.out.println(currLine);
+		}
+		
+		scan.close();
+	}
+	
+}

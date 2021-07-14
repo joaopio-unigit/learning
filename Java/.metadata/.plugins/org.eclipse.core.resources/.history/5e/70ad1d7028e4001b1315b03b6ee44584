@@ -1,0 +1,31 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Main {
+	
+	public static void main(String[] args) throws IOException {
+		
+		//LER UM FICHEIRO
+		//PODE SER MELHOR POR VEZES ESPECIFICAR O PATH INTEIRO
+		File f = new File("test.txt");
+		Scanner scan = new Scanner(f);
+		
+		String fileContent = "";
+		
+		while(scan.hasNextLine()) {
+			String currLine = scan.nextLine();
+			fileContent = fileContent.concat(currLine + "\n");
+			System.out.println(currLine);
+		}
+		
+		//ESCREVER NUM FICHEIRO
+		FileWriter fWriter = new FileWriter("testCopy.txt");
+		fWriter.write(fileContent);
+		
+		scan.close();
+		fWriter.close();
+	}
+	
+}
